@@ -34,6 +34,26 @@ class MainActivity : AppCompatActivity() {
         var codigo:String? = "123"
         var resultado = codigo.isNull()
         println("Resultado: $resultado")
-        
+
+        /**
+         * Funciones de orden superior
+         */
+
+        val resultado1:Int = calculadora(4,6, ::suma)
+        println("Resultado Suma: $resultado1")
+
+        val resultado2:Int = calculadora(4,6, ::resta)
+        println("Resultado Resta: $resultado2")
+
+        val resultado3:Int = calculadora(4,6, ::multiplicacion)
+        println("Resultado Multiplicación: $resultado3")
     }
+
+    private fun calculadora(num1: Int, num2:Int, fn:(Int, Int) -> Int):Int{
+        return fn(num1, num2)
+    }
+
+    private fun suma(a: Int, b:Int):Int = a+b
+    private fun resta(a: Int, b:Int):Int = a-b
+    private fun multiplicacion(a: Int, b:Int):Int = a*b
 }
