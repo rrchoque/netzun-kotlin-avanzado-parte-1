@@ -5,9 +5,14 @@ import android.os.Bundle
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.ContextCompat
+import com.example.kotlinavanzado1.clases.Animal
 import com.example.kotlinavanzado1.clases.Dog
 import com.example.kotlinavanzado1.clases.isNull
 import com.example.kotlinavanzado1.clases.show
+
+typealias bicho = Animal.Parasite
+typealias map = MutableMap<Int,ArrayList<String>>
+typealias miFuncion = (x:Int, y:Int) -> Int
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -91,11 +96,9 @@ class MainActivity : AppCompatActivity() {
 
         var miArray = IntArray(5){it*2}
         miArray.show()
-        println()
 
         var miArray2 = IntArray(5){it*5}
         miArray2.show()
-        println()
 
         var tvTexto = findViewById<TextView>(R.id.tvTexto)
         tvTexto.setOnClickListener {
@@ -109,6 +112,16 @@ class MainActivity : AppCompatActivity() {
             suma += it
         }
         println("Suma de elementos del array: $suma")
+
+        /**
+         * Typealias
+         */
+
+
+        //var pulga = Animal.Parasite("Pulga")
+        var pulga = bicho("Pulga")
+
+        var miMap: map = mutableMapOf()
     }
 
     private fun calculadora(num1: Int, num2:Int, fn:(Int, Int) -> Int):Int{

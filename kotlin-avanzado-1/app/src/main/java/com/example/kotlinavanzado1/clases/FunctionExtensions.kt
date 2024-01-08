@@ -19,5 +19,5 @@ fun IntArray.show(){
     for (i in this.indices){
         print("${this[i]} ")
     }
-    print("]")
+    println("]")
 }

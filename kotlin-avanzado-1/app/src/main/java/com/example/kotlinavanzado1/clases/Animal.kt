@@ -7,4 +7,8 @@ open class Animal (var alive:Boolean, var weight:Float, var age:Int) {
     fun die(){
         this.alive=false
     }
+
+    class Parasite(var plaga:String){
+
+    }
 }
