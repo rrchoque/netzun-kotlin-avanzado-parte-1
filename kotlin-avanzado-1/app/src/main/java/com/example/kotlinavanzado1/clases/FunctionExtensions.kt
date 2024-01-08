@@ -13,3 +13,11 @@ fun String.myStyle(): String{
 fun Activity.getColor(color: Int) = ContextCompat.getColor(this, color)
 
 fun Any?.isNull() = this==null
+
+fun IntArray.show(){
+    print("[")
+    for (i in this.indices){
+        print("${this[i]} ")
+    }
+    print("]")
+}
