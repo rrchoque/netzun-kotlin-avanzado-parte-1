@@ -47,6 +47,15 @@ class MainActivity : AppCompatActivity() {
 
         val resultado3:Int = calculadora(4,6, ::multiplicacion)
         println("Resultado Multiplicación: $resultado3")
+
+        /**
+         * Funciones de orden superior en objetos
+         */
+        val firulais = Dog("Firulais", "Macho", 6.7f, 6)
+        if (firulais.checkOlder(::inPeru)) println("${firulais.name} es mayor de edad en Perú")
+        if (firulais.checkOlder(::inBolivia)) println("${firulais.name} es mayor de edad en Bolivia")
+        if (firulais.checkOlder(::inSpain)) println("${firulais.name} es mayor de edad en España")
+
     }
 
     private fun calculadora(num1: Int, num2:Int, fn:(Int, Int) -> Int):Int{
@@ -56,4 +65,10 @@ class MainActivity : AppCompatActivity() {
     private fun suma(a: Int, b:Int):Int = a+b
     private fun resta(a: Int, b:Int):Int = a-b
     private fun multiplicacion(a: Int, b:Int):Int = a*b
+
+    //---------------
+
+    private fun inPeru(age:Int):Boolean = age >= 6
+    private fun inBolivia(age:Int):Boolean = age >= 5
+    private fun inSpain(age:Int):Boolean = age >= 7
 }
