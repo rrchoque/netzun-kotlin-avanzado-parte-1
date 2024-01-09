@@ -9,6 +9,7 @@ import com.example.kotlinavanzado1.clases.Animal
 import com.example.kotlinavanzado1.clases.Dog
 import com.example.kotlinavanzado1.clases.isNull
 import com.example.kotlinavanzado1.clases.show
+import com.example.kotlinavanzado1.model.Person
 
 typealias bicho = Animal.Parasite
 typealias map = MutableMap<Int,ArrayList<String>>
@@ -117,11 +118,19 @@ class MainActivity : AppCompatActivity() {
          * Typealias
          */
 
-
         //var pulga = Animal.Parasite("Pulga")
         var pulga = bicho("Pulga")
 
         var miMap: map = mutableMapOf()
+
+        /**
+         * Desestructuración
+         */
+        val (a,b,c) = Person("1241241", "Reynaldo", 30)
+        println("$a - $b - $c")
+
+        val (a1,b1,c1, d1) = firulais
+        println("$a1 - $b1 - $c1 - $d1")
     }
 
     private fun calculadora(num1: Int, num2:Int, fn:(Int, Int) -> Int):Int{
