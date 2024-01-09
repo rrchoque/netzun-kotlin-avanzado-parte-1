@@ -64,7 +64,7 @@ class MainActivity : AppCompatActivity() {
         /**
          * Funciones de orden superior en objetos
          */
-        val firulais = Dog("Firulais", "Macho", 6.7f, 6)
+        var firulais = Dog("Firulais", "Macho", 6.7f, 6)
         if (firulais.checkOlder(::inPeru)) println("${firulais.name} es mayor de edad en Perú")
         if (firulais.checkOlder(::inBolivia)) println("${firulais.name} es mayor de edad en Bolivia")
         if (firulais.checkOlder(::inSpain)) println("${firulais.name} es mayor de edad en España")
@@ -160,6 +160,44 @@ class MainActivity : AppCompatActivity() {
          * Throw exceptions
          */
         checkPassword("1234567")
+
+        /**
+         * Scope functions
+         */
+        firulais.name="Pepita"
+        firulais.sex="hembra"
+        firulais.age=8
+        firulais.die()
+
+        firulais.let {
+            it.name="Pepita"
+            it.sex="hembra"
+            it.age=8
+            it.die()
+        }
+
+        firulais.apply {
+            this.name="Pepita"
+            this.sex="hembra"
+            this.age=8
+            this.die()
+        }
+
+        var pepita = Dog("Pepita", "Hembra", 3.2f, 4).apply {
+            this.bark()
+        }
+
+        var mota = Dog("Mota", "Hembra", 4.2f, 5).run {
+            this.bark()
+            "Esta perrita es muy juguetona"
+        }
+
+        var rocky = with(firulais){
+            this.name="Rocky"
+            true
+        }.run {
+            "Rocky es travieso"
+        }
     }
 
     private fun calculadora(num1: Int, num2:Int, fn:(Int, Int) -> Int):Int{
