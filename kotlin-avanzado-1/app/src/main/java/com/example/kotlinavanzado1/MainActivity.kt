@@ -198,6 +198,13 @@ class MainActivity : AppCompatActivity() {
         }.run {
             "Rocky es travieso"
         }
+
+        /**
+         * Elvis operator
+         */
+        var miText : String? = null
+        var email = miText?.uppercase() ?: "Correo vacio"
+        println("Correo: $email")
     }
 
     private fun calculadora(num1: Int, num2:Int, fn:(Int, Int) -> Int):Int{
