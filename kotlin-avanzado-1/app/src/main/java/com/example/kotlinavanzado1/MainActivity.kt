@@ -10,6 +10,10 @@ import com.example.kotlinavanzado1.clases.Dog
 import com.example.kotlinavanzado1.clases.isNull
 import com.example.kotlinavanzado1.clases.show
 import com.example.kotlinavanzado1.model.Person
+import java.lang.ArithmeticException
+import java.lang.Exception
+import java.lang.NumberFormatException
+import kotlin.math.pow
 
 typealias bicho = Animal.Parasite
 typealias map = MutableMap<Int,ArrayList<String>>
@@ -131,6 +135,31 @@ class MainActivity : AppCompatActivity() {
 
         val (a1,b1,c1, d1) = firulais
         println("$a1 - $b1 - $c1 - $d1")
+
+        /**
+         * Manejo de errores con Try Catch Finally
+         */
+        //println("resultado: ${7/0}")
+        //println("resultado: ${potencia(-4.0, 0.5)}")
+
+        val editText = "H"
+        try {
+            //println("resultado: ${editText.toInt()}")
+            println("resultado: ${20/0}")
+        } catch (e:NumberFormatException){
+            println("Formato de número desconocido")
+        } catch (e:ArithmeticException){
+            println("Operacion no permitida")
+        } catch (e:Exception){
+            println("Error detectado")
+        } finally {
+            println("Fin de la operación")
+        }
+
+        /**
+         * Throw exceptions
+         */
+        checkPassword("1234567")
     }
 
     private fun calculadora(num1: Int, num2:Int, fn:(Int, Int) -> Int):Int{
@@ -151,6 +180,19 @@ class MainActivity : AppCompatActivity() {
     private fun runArray(array:IntArray, fn:(Int)->Unit){
         for (i in array){
             fn(i)
+        }
+    }
+
+    //-----------
+    private fun potencia(b:Double, e:Double):Double{
+        return b.pow(e)
+    }
+
+    private fun checkPassword(password:String){
+        if (password.length<=6){
+            throw Exception("Se necesita almenos 6 caracteres")
+        } else {
+            println("Longitud aceptada")
         }
     }
 }
